@@ -53,12 +53,12 @@ def ask_document(document, question):
     client = genai.Client(api_key=api_key)
 
     response = client.models.generate_content(
-        model="gemini-3.8-flash",
+        model="gemini-3.5-flash-lite",
         contents=prompt
     )
 
     # Step 5: Return answer and sources
     return {
         "answer": response.text or "No answer generated.",
-        "sources": [item["page"] for item in results]
+        "sources": list(dict.fromkeys(item["page"] for item in results))
     }
