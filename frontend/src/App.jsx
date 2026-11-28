@@ -2,7 +2,6 @@
 import { useState } from "react";
 import "./App.css";
 
-
 function getCsrfToken() {
   const cookie = document.cookie
     .split("; ")
